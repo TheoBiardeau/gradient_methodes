@@ -179,3 +179,12 @@ class DerichEdgeDetector :
         angle_gradient = arctan(gy/gx)
 
         return norme_gradient, angle_gradient
+    
+    
+class ChatouxEdgeDetector:
+    """
+    ChatouxEdgeDetector is a edged detectir methode based on the P.h.D thesis of Hermine Chatoux
+    This edge detector use vectoriel approach
+    """
+    #def __init__(self, images, gram_matrix):
+        
