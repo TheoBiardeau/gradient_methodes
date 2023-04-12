@@ -3,7 +3,7 @@
 """
 Created on Wed Apr 12 09:42:44 2023
 
-@author: theo
+@author: Theo Biardeau
 """
 
 import numpy as np
@@ -13,6 +13,7 @@ from numpy import cos
 from numpy import zeros
 from numpy import sqrt
 from numpy import arctan
+import cv2 as cv
 
 class DerichEdgeDetector :
     """ 
@@ -179,11 +180,52 @@ class DerichEdgeDetector :
         angle_gradient = arctan(gy/gx)
 
         return norme_gradient, angle_gradient
-    
-    
+
+
+class CarronEdgeDetector:
+    """
+    CarronEdgeDetector is a edged detector methode based on the article thesis of Thierry Carron and Patrick Lambert 
+    This edge detector use HSV property
+    """
+    def __init__(self, images):
+        """
+
+        Parameters
+        ----------
+        images : Array
+            Images in BGR format.
+
+        Returns
+        -------
+        None.
+
+        """
+
+        self.image_hsv = cv.cvtColor(images, cv.COLOR_BGR2HSV)
+
+    def sigmoid(self,z):
+        """
+
+        Parameters
+        ----------
+        z : Long, int or double
+            Sigmoid implemnentation.
+
+        Returns
+        -------
+        double.
+
+        """
+        return 1/(1 + np.exp(-z)
+
+    def carron_methode (self):
+        
+
+
+
 class ChatouxEdgeDetector:
     """
-    ChatouxEdgeDetector is a edged detectir methode based on the P.h.D thesis of Hermine Chatoux
+    ChatouxEdgeDetector is a edged detector methode based on the P.h.D thesis of Hermine Chatoux
     This edge detector use vectoriel approach
     """
     #def __init__(self, images, gram_matrix):
